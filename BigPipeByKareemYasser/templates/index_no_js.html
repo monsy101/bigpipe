@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BigPipe Demo</title>
+</head>
+<body>
+    <div id="header">BigPipe Demo</div>
+    <div id="main-content">
+        {% block main_content %}
+            This is the main content of the page.
+        {% endblock %}
+    </div>
+    <div id="sidebar">This is the sidebar content.</div>
+    <div id="footer">Copyright © 2023 BigPipe Demo</div>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        console.log("Script is running!");
+
+        // Simulate asynchronous loading of additional content
+        setTimeout(function() {
+            var additionalContent = document.createElement('div');
+            additionalContent.innerHTML = 'This content was loaded asynchronously!';
+            document.getElementById('main-content').appendChild(additionalContent);
+            console.log("3 seconds later!");
+        }, 3000);
+    });
+</script>
+
+</body>
+</html>
